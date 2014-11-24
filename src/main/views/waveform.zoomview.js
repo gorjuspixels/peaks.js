@@ -288,21 +288,21 @@ define([
   };
 
   WaveformZoomView.prototype.syncPlayhead = function (pixelIndex) {
-    var that = this;
-    var display = (pixelIndex >= that.frameOffset) && (pixelIndex <= that.frameOffset + that.width);
+    // var that = this;
+    // var display = (pixelIndex >= that.frameOffset) && (pixelIndex <= that.frameOffset + that.width);
 
-    that.playheadPixel = pixelIndex;
+    // that.playheadPixel = pixelIndex;
 
-    if (display) {
-      var remPixels = that.playheadPixel - that.frameOffset; //places playhead at centre of zoom frame i.e. remPixels = 500
-      that.zoomPlayheadGroup.show().setAttr("x", remPixels);
-      that.zoomPlayheadText.setText(mixins.niceTime(that.data.time(that.playheadPixel), false));
-    }
-    else {
-      that.zoomPlayheadGroup.hide();
-    }
+    // if (display) {
+    //   var remPixels = that.playheadPixel - that.frameOffset; //places playhead at centre of zoom frame i.e. remPixels = 500
+    //   that.zoomPlayheadGroup.show().setAttr("x", remPixels);
+    //   that.zoomPlayheadText.setText(mixins.niceTime(that.data.time(that.playheadPixel), false));
+    // }
+    // else {
+    //   that.zoomPlayheadGroup.hide();
+    // }
 
-    that.uiLayer.draw();
+    // that.uiLayer.draw();
   };
 
   WaveformZoomView.prototype.seekFrame = function (pixelIndex, offset) {
