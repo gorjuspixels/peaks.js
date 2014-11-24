@@ -40,26 +40,26 @@ define([
 
     that.stage = new Kinetic.Stage({
       container: container,
-      width: that.width,
-      height: that.height
+      width: 0,
+      height: 0
     });
 
-    that.zoomWaveformLayer = new Kinetic.Layer();
-    that.uiLayer = new Kinetic.Layer();
+    // that.zoomWaveformLayer = new Kinetic.Layer();
+    // that.uiLayer = new Kinetic.Layer();
 
-    that.background = new Kinetic.Rect({
-      x: 0,
-      y: 0,
-      width: that.width,
-      height: that.height
-    });
+    // that.background = new Kinetic.Rect({
+    //   x: 0,
+    //   y: 0,
+    //   width: that.width,
+    //   height: that.height
+    // });
 
-    that.zoomWaveformLayer.add(that.background);
+    // that.zoomWaveformLayer.add(that.background);
 
-    that.axis = new WaveformAxis(that);
+    // that.axis = new WaveformAxis(that);
 
-    that.createZoomWaveform();
-    that.createUi();
+    // that.createZoomWaveform();
+    // that.createUi();
 
     // INTERACTION ===============================================
 
@@ -115,24 +115,24 @@ define([
       }
     });
 
-    that.peaks.on("player_seek", userSeekHandler.bind(null, { withOffset: true }));
-    that.peaks.on("user_seek.*", userSeekHandler.bind(null, { withOffset: true }));
-    that.peaks.on("user_scrub.*", userSeekHandler.bind(null, { withOffset: false }));
+    // that.peaks.on("player_seek", userSeekHandler.bind(null, { withOffset: true }));
+    // that.peaks.on("user_seek.*", userSeekHandler.bind(null, { withOffset: true }));
+    // that.peaks.on("user_scrub.*", userSeekHandler.bind(null, { withOffset: false }));
 
-    that.peaks.on("player_play", function (time) {
-      that.playing = true;
-      that.playFrom(time, that.data.at_time(time));
-    });
+    // that.peaks.on("player_play", function (time) {
+    //   that.playing = true;
+    //   that.playFrom(time, that.data.at_time(time));
+    // });
 
-    that.peaks.on("player_pause", function (time) {
-      that.playing = false;
+    // that.peaks.on("player_pause", function (time) {
+    //   that.playing = false;
 
-      if (that.playheadLineAnimation) {
-        that.playheadLineAnimation.stop();
-      }
+    //   if (that.playheadLineAnimation) {
+    //     that.playheadLineAnimation.stop();
+    //   }
 
-      that.syncPlayhead(that.data.at_time(time));
-    });
+    //   that.syncPlayhead(that.data.at_time(time));
+    // });
 
     that.peaks.on("zoom.update", function (current_scale, previous_scale) {
       if (that.playing) {

@@ -65,9 +65,9 @@ define([
 
         if (editable) {
           var draggable = true;
-          if (segmentGroup === segmentOverviewGroup) {
-            draggable = false;
-          }
+          // if (segmentGroup === segmentOverviewGroup) {
+          //   draggable = false;
+          // }
 
           segmentGroup.inMarker = new peaks.options.segmentInMarker(draggable, segmentGroup, segment, segmentHandleDrag);
           segmentGroup.add(segmentGroup.inMarker);
@@ -155,7 +155,7 @@ define([
         var outOffset = thisSeg.view.frameOffset + thisSeg.outMarker.getX();
         segment.endTime = thisSeg.view.data.time(outOffset);
       }
-
+      peaks.emit("segments.drag", {start: segment.startTime, end: segment.endTime});
       updateSegmentWaveform(segment);
     };
 
