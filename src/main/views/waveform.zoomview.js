@@ -218,30 +218,30 @@ define([
   };
 
   WaveformZoomView.prototype.updateZoomWaveform = function (pixelOffset) {
-    var that = this;
+    // var that = this;
 
-    that.frameOffset = pixelOffset;
-    that.pixelLength = that.data.adapter.length;
-    that.data.offset(pixelOffset, pixelOffset + that.width);
+    // that.frameOffset = pixelOffset;
+    // that.pixelLength = that.data.adapter.length;
+    // that.data.offset(pixelOffset, pixelOffset + that.width);
 
-    var display = (that.playheadPixel >= pixelOffset) && (that.playheadPixel <= pixelOffset + that.width); //i.e. playhead is within the zoom frame width
+    // var display = (that.playheadPixel >= pixelOffset) && (that.playheadPixel <= pixelOffset + that.width); //i.e. playhead is within the zoom frame width
 
-    if (display) {
-      var remPixels = that.playheadPixel - pixelOffset;
+    // if (display) {
+    //   var remPixels = that.playheadPixel - pixelOffset;
 
-      that.zoomPlayheadGroup.show().setAttr("x", remPixels);
-      that.zoomPlayheadText.setText(mixins.niceTime(that.data.time(that.playheadPixel), false));
-    }
-    else {
-      that.zoomPlayheadGroup.hide();
-    }
+    //   that.zoomPlayheadGroup.show().setAttr("x", remPixels);
+    //   that.zoomPlayheadText.setText(mixins.niceTime(that.data.time(that.playheadPixel), false));
+    // }
+    // else {
+    //   that.zoomPlayheadGroup.hide();
+    // }
 
-    that.uiLayer.draw();
-    that.zoomWaveformLayer.draw();
+    // that.uiLayer.draw();
+    // that.zoomWaveformLayer.draw();
 
-    // if (that.snipWaveformShape) that.updateSnipWaveform(that.currentSnipStartTime, that.currentSnipEndTime);
+    // // if (that.snipWaveformShape) that.updateSnipWaveform(that.currentSnipStartTime, that.currentSnipEndTime);
 
-    that.peaks.emit("waveform_zoom_displaying", pixelOffset * that.data.seconds_per_pixel, (pixelOffset+that.width) * that.data.seconds_per_pixel);
+    // that.peaks.emit("waveform_zoom_displaying", pixelOffset * that.data.seconds_per_pixel, (pixelOffset+that.width) * that.data.seconds_per_pixel);
   };
 
   // UI functions ==============================
